@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 30px 0;
+      flex-direction: column;
+      gap: 5em;
+      background: #A6AAFF;
+    }
+
+    body h2 {
+      color: white;
+      font-weight: bold;
+      font-size: 1.3em;
+    }
+
+    main {
+      padding: 10px;
+      border-radius: 10px;
+      width: 95%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 10px;
+      gap: 2em; 
+    }
+
+    .question{
+        color: #243664;
+        font-size: 1.4em;
+        font-weight: 600;
+    }
+
+    .spnQtd {
+      text-align: center;
+      background-color: #243664;
+      color: white;
+      padding: .5em 2em;
+      font-size: .9em;
+      border-radius: 5px;
+    }
+
+    .answers {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 5px;
+    }
+    .answers > div{
+        width: 48%;
+    }
+    button{
+        width: 100%;
+        font-size: 1em;
+        padding: .5em .2em;
+        border-radius: 5px;
+        border: none;
+        background-color: #243664;
+        color: white;
+    }
+    button.answer {
+      width: 100%;
+      text-align: center;
+      font-size: 1em;
+      padding: 1em .2em;
+      height: 100%;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: white;
+      color: #000;
+    }
+
+    .finish {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .finish button {
+      text-align: center;
+    }
+    button.selected{
+        background-color: #243664;
+        color: white;
+    }
