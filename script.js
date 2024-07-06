@@ -360,6 +360,7 @@ const question = document.querySelector(".question");
 
         textAcertos.innerHTML = `Você acertou ${questionsCorrect} de 10 questões`;
         textPontuacao.innerHTML = `Sua pontuação final: ${finalScore}`;
+        console.log(finalScore);
         content.style.display = "none";
         contentFinish.style.display = "flex";
     }
