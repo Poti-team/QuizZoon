@@ -325,7 +325,7 @@ const question = document.querySelector(".question");
     let startTime;
     let timeEasy = 0;
     let timeMedium = 0;
-    let TimeHard = 0;
+    let timeHard = 0;
     let easyCorrect = 0;
     let mediumCorrect = 0;
     let hardCorrect = 0;
@@ -341,10 +341,10 @@ const question = document.querySelector(".question");
         selectedMedium = [];
         selectedHard = [];
         selectedQuestions = [];
-        easyTime = 0;
-        mediumTime = 0;
-        hardTime = 0;
         easyCorrect = 0;
+        timeEasy = 0;
+        timeMedium = 0;
+        timeHard = 0;
         mediumCorrect = 0;
         hardCorrect = 0;
         loadQuestion();
@@ -357,7 +357,7 @@ const question = document.querySelector(".question");
         const hardTimeSeconds = Math.floor(timeHard / 1000);
 
         let finalScore = calculateScore(easyCorrect, mediumCorrect, hardCorrect, easyTimeSeconds, mediumTimeSeconds, hardTimeSeconds);
-
+        console.log(easyCorrect, mediumCorrect, hardCorrect);
         textAcertos.innerHTML = `Você acertou ${questionsCorrect} de 10 questões`;
         textPontuacao.innerHTML = `Sua pontuação final: ${finalScore}`;
         console.log(finalScore);
@@ -376,10 +376,14 @@ const question = document.querySelector(".question");
         if(t3 < 1){
           t3 = 1;
         }
-        const F = (2 * A1) + (27 / t1);
-        const M = (3 * A2) + (96 / t2);
-        const D = (4 * A3) + (81 / t3);
-        return Math.round(F + M + D);
+
+        const minF = 2 * A1;
+        const minM = 3 * A2;
+        const minD = 4 * A3;
+        const F = math.ceil(25/t1 * A1);
+        const M = math.ceil(30/t2 * A2);
+        const D = math.ceil(40/t3 * A3);
+        return minF + F + minM + M + minD + D;
     }
 
     function loadQuestion() {
@@ -390,7 +394,7 @@ const question = document.querySelector(".question");
             let difficulty;
 
             if (selectedQuestions.length < 5) {
-                difficulty = "fácil";
+                difficulty = "facil";
                 do {
                     randomIndex = Math.floor(Math.random() * questionsEasy.length);
                 } while (selectedEasy.includes(randomIndex));
@@ -435,6 +439,8 @@ const question = document.querySelector(".question");
 
             btnResponder.onclick = () => {
                 if (!responded) {
+                    console.log(difficulty);
+                    
                     responded = true;
                     if (currentIndex == 5){
                         timeEasy = Date.now() - timestamp;
@@ -446,14 +452,13 @@ const question = document.querySelector(".question");
                     const selectedAnswer = document.querySelector(".answer.selected");
                     if (selectedAnswer) {
                         const isCorrect = selectedAnswer.getAttribute("data-correct") === "true";
-                        const currentDifficulty = selectedAnswer.getAttribute("data-difficulty");
                         if (isCorrect) {
                             selectedAnswer.style.backgroundColor = "green";
                             questionsCorrect++;
 
-                            if (currentDifficulty === "fácil") {
+                            if (difficulty === "facil") {
                                 easyCorrect++;
-                            } else if (currentDifficulty === "média") {
+                            } else if (difficulty === "media") {
                                 mediumCorrect++;
                             } else {
                                 hardCorrect++;
