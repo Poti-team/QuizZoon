@@ -357,7 +357,6 @@ const question = document.querySelector(".question");
         const hardTimeSeconds = Math.floor(timeHard / 1000);
 
         let finalScore = calculateScore(easyCorrect, mediumCorrect, hardCorrect, easyTimeSeconds, mediumTimeSeconds, hardTimeSeconds);
-        console.log(easyCorrect, mediumCorrect, hardCorrect);
         textAcertos.innerHTML = `Você acertou ${questionsCorrect} de 10 questões`;
         textPontuacao.innerHTML = `Sua pontuação final: ${finalScore}`;
         console.log(finalScore);
@@ -439,7 +438,6 @@ const question = document.querySelector(".question");
 
             btnResponder.onclick = () => {
                 if (!responded) {
-                    console.log(difficulty);
                     
                     responded = true;
                     if (currentIndex == 5){

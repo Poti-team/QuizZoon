@@ -325,7 +325,7 @@ const question = document.querySelector(".question");
     let startTime;
     let timeEasy = 0;
     let timeMedium = 0;
-    let TimeHard = 0;
+    let timeHard = 0;
     let easyCorrect = 0;
     let mediumCorrect = 0;
     let hardCorrect = 0;
@@ -343,8 +343,8 @@ const question = document.querySelector(".question");
         selectedQuestions = [];
         easyCorrect = 0;
         timeEasy = 0;
-    let timeMedium = 0;
-    let TimeHard = 0;
+        timeMedium = 0;
+        timeHard = 0;
         mediumCorrect = 0;
         hardCorrect = 0;
         loadQuestion();
@@ -376,10 +376,14 @@ const question = document.querySelector(".question");
         if(t3 < 1){
           t3 = 1;
         }
-        const F = (2 * A1) + (27 / t1);
-        const M = (3 * A2) + (96 / t2);
-        const D = (4 * A3) + (81 / t3);
-        return Math.round(F + M + D);
+
+        const minF = 2 * A1;
+        const minM = 3 * A2;
+        const minD = 4 * A3;
+        const F = math.ceil(25/t1 * A1);
+        const M = math.ceil(30/t2 * A2);
+        const D = math.ceil(40/t3 * A3);
+        return minF + F + minM + M + minD + D;
     }
 
     function loadQuestion() {
@@ -435,7 +439,6 @@ const question = document.querySelector(".question");
 
             btnResponder.onclick = () => {
                 if (!responded) {
-                    console.log(difficulty);
                     
                     responded = true;
                     if (currentIndex == 5){
