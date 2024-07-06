@@ -333,6 +333,7 @@ const question = document.querySelector(".question");
     btnRestart.onclick = () => {
         content.style.display = "flex";
         contentFinish.style.display = "none";
+        timestamp = Date.now()
 
         currentIndex = 1;
         questionsCorrect = 0;
