@@ -379,9 +379,9 @@ const question = document.querySelector(".question");
         const minF = 2 * A1;
         const minM = 3 * A2;
         const minD = 4 * A3;
-        const F = math.ceil(25/t1 * A1);
-        const M = math.ceil(30/t2 * A2);
-        const D = math.ceil(40/t3 * A3);
+        const F = Math.ceil(25/t1 * A1);
+        const M = Math.ceil(30/t2 * A2);
+        const D = Math.ceil(40/t3 * A3);
         return minF + F + minM + M + minD + D;
     }
 
