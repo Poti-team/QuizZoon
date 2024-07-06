@@ -437,15 +437,11 @@ const question = document.querySelector(".question");
                 if (!responded) {
                     responded = true;
                     if (currentIndex == 5){
-                        console.log(timestamp)
                         timeEasy = Date.now() - timestamp;
-                        console.log(timeEasy)
                     }else if (currentIndex == 8){
                         timeMedium = Date.now() - timeEasy - timestamp;
-                        console.log(timeMedium)
                     }else if (currentIndex == 10){
                         timeHard = Date.now() - timeMedium - timeEasy - timestamp;
-                        console.log(timeHard)
                     }
                     const selectedAnswer = document.querySelector(".answer.selected");
                     if (selectedAnswer) {
