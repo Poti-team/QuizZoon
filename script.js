@@ -13,14 +13,6 @@ const question = document.querySelector(".question");
     trilha.volume = 0;
     trilha.play();
     trilha.volume = 1;
-    }).catch(function(error) {
-        var playButton = document.createElement('button');
-        playButton.textContent = 'Clique para iniciar a trilha sonora';
-        playButton.addEventListener('click', function() {
-            trilha.play();
-        });
-        document.body.appendChild(playButton);
-    });
     const questionsEasy = [
     {
         question: "Qual é uma medida profilática contra Ancilostomíase/ Necatoríase (amarelão)?",
