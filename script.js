@@ -9,9 +9,8 @@ const question = document.querySelector(".question");
     const btnResponder = document.querySelector(".responder")
     const btnAvancar = document.querySelector(".avancar")
     const resumo = document.getElementById('resumo')
-    const trilha = document.getElementById('trilha')
-    trilha.currentTime = 0;
-    trilha.play();
+    const acerto = document.getElementById('acerto')
+    const erro = document.getElementById('erro')
     const questionsEasy = [
     {
         question: "Qual é uma medida profilática contra Ancilostomíase/ Necatoríase (amarelão)?",
@@ -569,14 +568,13 @@ const question = document.querySelector(".question");
         contentFinish.style.display = "none";
         timestamp = Date.now()
 
-        trilha.pause();
+        
         resumo.pause();
 
-        trilha.currentTime = 0;
+    
         resumo.currentTime = 0;
 
-        trilha.play()
-        
+               
         currentIndex = 1;
         questionsCorrect = 0;
         totalPoints = 0;
@@ -599,10 +597,8 @@ const question = document.querySelector(".question");
         const mediumTimeSeconds = Math.floor(timeMedium / 1000);
         const hardTimeSeconds = Math.floor(timeHard / 1000);
 
-        trilha.pause();
+        
         resumo.pause();
-
-        trilha.currentTime = 0;
         resumo.currentTime = 0;
 
         resumo.play()
@@ -704,6 +700,13 @@ const question = document.querySelector(".question");
                         if (isCorrect) {
                             selectedAnswer.style.backgroundColor = "green";
                             questionsCorrect++;
+                            erro.pause()
+                            acerto.pause()
+
+                            erro.currentTime = 0;
+                            acerto.currentTime = 0;
+
+                            acerto.play();
 
                             if (difficulty === "facil") {
                                 easyCorrect++;
@@ -713,6 +716,13 @@ const question = document.querySelector(".question");
                                 hardCorrect++;
                             }
                         } else {
+                            erro.pause()
+                            acerto.pause()
+
+                            erro.currentTime = 0;
+                            acerto.currentTime = 0;
+
+                            erro.play();
                             selectedAnswer.style.backgroundColor = "red";
                         }
 
