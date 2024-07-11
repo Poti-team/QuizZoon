@@ -700,8 +700,8 @@ const question = document.querySelector(".question");
                         if (isCorrect) {
                             selectedAnswer.style.backgroundColor = "green";
                             questionsCorrect++;
-                            erro.pause()
-                            acerto.pause()
+                            erro.pause();
+                            acerto.pause();
 
                             erro.currentTime = 0;
                             acerto.currentTime = 0;
@@ -716,8 +716,8 @@ const question = document.querySelector(".question");
                                 hardCorrect++;
                             }
                         } else {
-                            erro.pause()
-                            acerto.pause()
+                            erro.pause();
+                            acerto.pause();
 
                             erro.currentTime = 0;
                             acerto.currentTime = 0;
