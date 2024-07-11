@@ -8,6 +8,10 @@ const question = document.querySelector(".question");
     const btnRestart = document.querySelector(".finish button");
     const btnResponder = document.querySelector(".responder")
     const btnAvancar = document.querySelector(".avancar")
+    const resumo = document.getElementById('resumo')
+    const trilha = document.getElementById('trilha')
+    trilha.currentTime = 0;
+    trilha.play();
     const questionsEasy = [
     {
         question: "Qual é uma medida profilática contra Ancilostomíase/ Necatoríase (amarelão)?",
@@ -565,6 +569,14 @@ const question = document.querySelector(".question");
         contentFinish.style.display = "none";
         timestamp = Date.now()
 
+        trilha.pause();
+        resumo.pause();
+
+        trilha.currentTime = 0;
+        resumo.currentTime = 0;
+
+        trilha.play()
+        
         currentIndex = 1;
         questionsCorrect = 0;
         totalPoints = 0;
@@ -586,6 +598,14 @@ const question = document.querySelector(".question");
         const easyTimeSeconds = Math.floor(timeEasy / 1000);
         const mediumTimeSeconds = Math.floor(timeMedium / 1000);
         const hardTimeSeconds = Math.floor(timeHard / 1000);
+
+        trilha.pause();
+        resumo.pause();
+
+        trilha.currentTime = 0;
+        resumo.currentTime = 0;
+
+        resumo.play()
 
         let finalScore = calculateScore(easyCorrect, mediumCorrect, hardCorrect, easyTimeSeconds, mediumTimeSeconds, hardTimeSeconds);
         textAcertos.innerHTML = `Você acertou ${questionsCorrect} de 10 questões`;
