@@ -8,7 +8,19 @@ const question = document.querySelector(".question");
     const btnRestart = document.querySelector(".finish button");
     const btnResponder = document.querySelector(".responder")
     const btnAvancar = document.querySelector(".avancar")
-
+    const resumo = document.getElementById('resumo')
+    const trilha = document.getElementById('trilha')
+    trilha.volume = 0;
+    trilha.play();
+    trilha.volume = 1;
+    }).catch(function(error) {
+        var playButton = document.createElement('button');
+        playButton.textContent = 'Clique para iniciar a trilha sonora';
+        playButton.addEventListener('click', function() {
+            trilha.play();
+        });
+        document.body.appendChild(playButton);
+    });
     const questionsEasy = [
     {
         question: "Qual é uma medida profilática contra Ancilostomíase/ Necatoríase (amarelão)?",
